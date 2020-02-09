@@ -13,6 +13,8 @@ import java.util.Set;
  * 
  * Solution's rating -> GOOD (but can be improved further - achieve linear time complexity without using extra storage)
  * 
+ * Better solution -> FirstDuplicateBestSolution.java
+ * 
  */
 public class FirstDuplicateUsingHashSet {
 

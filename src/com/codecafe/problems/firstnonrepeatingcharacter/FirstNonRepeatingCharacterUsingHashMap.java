@@ -10,7 +10,8 @@ import java.util.Map;
  * find and return the first instance of a non-repeating character in it.
  * If there is no such character return '_'.
  * 
- * Solution's rating -> Better
+ * Solution's rating -> Better than brute force technique (two for loops)
+ * Better solution -> FirstNonRepeatingCharacterUsingArray.java
  * 
  */
 

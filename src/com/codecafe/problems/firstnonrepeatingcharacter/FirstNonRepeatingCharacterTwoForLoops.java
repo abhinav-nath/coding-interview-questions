@@ -8,6 +8,7 @@ package com.codecafe.problems.firstnonrepeatingcharacter;
  * If there is no such character return '_'.
  * 
  * Solution's rating -> BAD
+ * Better solution -> FirstNonRepeatingCharacterUsingHashMap.java
  * 
  */
 

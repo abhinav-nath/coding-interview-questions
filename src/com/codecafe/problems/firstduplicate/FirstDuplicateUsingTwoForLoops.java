@@ -8,6 +8,7 @@ package com.codecafe.problems.firstduplicate;
  * the second occurrence of the other number does. If there are no such elements, return -1.
  * 
  * Solution's rating -> BAD
+ * Better solution -> FirstDuplicateUsingHashSet.java
  * 
  */
 public class FirstDuplicateUsingTwoForLoops {

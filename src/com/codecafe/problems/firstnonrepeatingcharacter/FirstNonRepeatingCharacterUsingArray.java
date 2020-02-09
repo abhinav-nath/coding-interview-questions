@@ -7,7 +7,8 @@ package com.codecafe.problems.firstnonrepeatingcharacter;
  * find and return the first instance of a non-repeating character in it.
  * If there is no such character return '_'.
  * 
- * Solution's rating -> Better than HashMap
+ * Solution's rating -> Better than using HashMap
+ * Better solution -> FirstNonRepeatingCharacterUsingBuiltInMethods.java
  * 
  */
 
