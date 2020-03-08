@@ -24,7 +24,7 @@ Follow up:
 Coud you solve it without converting the integer to a string?
  */
 
-public class PalindromeNumber {
+public class PalindromeNumber_9 {
 
 	public static void main(String[] args) {
 

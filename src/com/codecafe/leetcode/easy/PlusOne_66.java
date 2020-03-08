@@ -20,7 +20,7 @@ Input: [4,3,2,1]
 Output: [4,3,2,2]
 Explanation: The array represents the integer 4321.
  */
-public class PlusOne {
+public class PlusOne_66 {
 
 	public static void main(String[] args) {
 		List<int[]> testArrays = new ArrayList<>();

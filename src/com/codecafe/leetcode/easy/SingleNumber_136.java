@@ -18,7 +18,7 @@ Input: [4,1,2,1,2]
 Output: 4
  */
 
-public class SingleNumber {
+public class SingleNumber_136 {
 
 	public static void main(String[] args) {
 

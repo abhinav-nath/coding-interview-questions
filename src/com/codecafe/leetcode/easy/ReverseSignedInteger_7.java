@@ -23,7 +23,7 @@ Assume we are dealing with an environment which could only store integers within
 For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
  */
 
-public class ReverseSignedInteger {
+public class ReverseSignedInteger_7 {
 
 	public static void main(String[] args) {
 

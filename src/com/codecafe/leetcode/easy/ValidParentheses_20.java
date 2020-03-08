@@ -34,7 +34,7 @@ Input: "{[]}"
 Output: true
  */
 
-public class ValidParentheses {
+public class ValidParentheses_20 {
 
 	public static void main(String[] args) {
 
