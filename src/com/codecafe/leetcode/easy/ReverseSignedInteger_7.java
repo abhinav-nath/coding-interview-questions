@@ -25,39 +25,39 @@ For the purpose of this problem, assume that your function returns 0 when the re
 
 public class ReverseSignedInteger_7 {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		List<Integer> testNumbers = new ArrayList<>();
+        List<Integer> testNumbers = new ArrayList<>();
 
-		testNumbers.add(123);
-		testNumbers.add(-123);
-		testNumbers.add(120);
-		testNumbers.add(1534236469);
+        testNumbers.add(123);
+        testNumbers.add(-123);
+        testNumbers.add(120);
+        testNumbers.add(1534236469);
 
-		for(int num : testNumbers)
-			System.out.println("reverse("+num+") = "+reverse(num));
+        for (int num : testNumbers)
+            System.out.println("reverse(" + num + ") = " + reverse(num));
 
-	}
+    }
 
-	private static int reverse(int x) {
+    private static int reverse(int x) {
 
-		int reverse=0;
-		int rem=0;
+        int reverse = 0;
+        int rem = 0;
 
-		while(x != 0) {
-			rem = x % 10;
-			x = x/10;
+        while (x != 0) {
+            rem = x % 10;
+            x = x / 10;
 
-			if(reverse > Integer.MAX_VALUE/10 || reverse == Integer.MAX_VALUE/10 && rem > 7)
-				return 0;
+            if (reverse > Integer.MAX_VALUE / 10 || reverse == Integer.MAX_VALUE / 10 && rem > 7)
+                return 0;
 
-			if(reverse < Integer.MIN_VALUE/10 || reverse == Integer.MIN_VALUE/10 && rem < -8)
-				return 0;
+            if (reverse < Integer.MIN_VALUE / 10 || reverse == Integer.MIN_VALUE / 10 && rem < -8)
+                return 0;
 
-			reverse = (10 * reverse) + rem;
-		}
+            reverse = (10 * reverse) + rem;
+        }
 
-		return reverse;
-	}
+        return reverse;
+    }
 
 }

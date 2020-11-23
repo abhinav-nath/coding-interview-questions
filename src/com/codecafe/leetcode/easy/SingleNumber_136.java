@@ -20,60 +20,59 @@ Output: 4
 
 public class SingleNumber_136 {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		int[] nums = new int[]{ 2, 2, 1 };
-		System.out.print("Using HashMap : "+singleNumberUsingHashMap(nums)+"\t");
-		System.out.print("Using XOR : "+singleNumberUsingXOR(nums)+"\n");
-		
-		nums = new int[]{ 4, 1, 2, 1, 2 };
-		System.out.print("Using HashMap : "+singleNumberUsingHashMap(nums)+"\t");
-		System.out.print("Using XOR : "+singleNumberUsingXOR(nums)+"\n");
+        int[] nums = new int[] { 2, 2, 1 };
+        System.out.print("Using HashMap : " + singleNumberUsingHashMap(nums) + "\t");
+        System.out.print("Using XOR : " + singleNumberUsingXOR(nums) + "\n");
 
-	}
+        nums = new int[] { 4, 1, 2, 1, 2 };
+        System.out.print("Using HashMap : " + singleNumberUsingHashMap(nums) + "\t");
+        System.out.print("Using XOR : " + singleNumberUsingXOR(nums) + "\n");
 
-	// unoptimized but one way of solving this problem
-	public static int singleNumberUsingHashMap(int[] nums) {
+    }
 
-		Map<Integer, Integer> numberFrequencyMap = new HashMap<>();
+    // unoptimized but one way of solving this problem
+    public static int singleNumberUsingHashMap(int[] nums) {
 
-		for(int i=0; i < nums.length; i++) {
+        Map<Integer, Integer> numberFrequencyMap = new HashMap<>();
 
-			if(!numberFrequencyMap.containsKey(nums[i])) {
-				numberFrequencyMap.put(nums[i], 1);
-			} else {
-				numberFrequencyMap.put(nums[i], numberFrequencyMap.get(nums[i])+1);
-			}
-		}
+        for (int i = 0; i < nums.length; i++) {
 
-		for(Map.Entry<Integer, Integer> entry : numberFrequencyMap.entrySet()) {
+            if (!numberFrequencyMap.containsKey(nums[i])) {
+                numberFrequencyMap.put(nums[i], 1);
+            } else {
+                numberFrequencyMap.put(nums[i], numberFrequencyMap.get(nums[i]) + 1);
+            }
+        }
 
-			if(entry.getValue() == 1) {
-				return entry.getKey();
-			}
+        for (Map.Entry<Integer, Integer> entry : numberFrequencyMap.entrySet()) {
 
-		}
+            if (entry.getValue() == 1) {
+                return entry.getKey();
+            }
 
-		return -1;
-	}
+        }
 
+        return -1;
+    }
 
-	// using XOR - highly optimized linear solution !
-	// 0 ^ num = num
-	// num ^ num = 0
-	
-	// consider this example : {2, 1, 2}
-	// 0 ^ 2 = 2
-	// 2 ^ 1 = 3
-	// 3 ^ 2 = 1
-	public static int singleNumberUsingXOR(int[] nums) {
+    // using XOR - highly optimized linear solution !
+    // 0 ^ num = num
+    // num ^ num = 0
 
-		int result = 0;
+    // consider this example : { 2, 1, 2 }
+    // 0 ^ 2 = 2
+    // 2 ^ 1 = 3
+    // 3 ^ 2 = 1
+    public static int singleNumberUsingXOR(int[] nums) {
 
-		for(int i=0; i < nums.length; i++) 
-			result ^= nums[i];	
+        int result = 0;
 
-		return result;
-	}
+        for (int i = 0; i < nums.length; i++)
+            result ^= nums[i];
+
+        return result;
+    }
 
 }

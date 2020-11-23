@@ -36,45 +36,45 @@ Output: true
 
 public class ValidParentheses_20 {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		List<String> testStrings = new ArrayList<>();
+        List<String> testStrings = new ArrayList<>();
 
-		testStrings.add("()");
-		testStrings.add("()[]{}");
-		testStrings.add("(]");
-		testStrings.add("([)]");
-		testStrings.add("{[]}");
-		testStrings.add("{}[{()()}]");
+        testStrings.add("()");
+        testStrings.add("()[]{}");
+        testStrings.add("(]");
+        testStrings.add("([)]");
+        testStrings.add("{[]}");
+        testStrings.add("{}[{()()}]");
 
-		for(String s : testStrings)
-			System.out.println(s + " : " + isValid(s));
+        for (String s : testStrings)
+            System.out.println(s + " : " + isValid(s));
 
-	}
+    }
 
-	public static boolean isValid(String s) {
+    public static boolean isValid(String s) {
 
-		if(s.length() % 2 != 0)
-			return false;
+        if (s.length() % 2 != 0)
+            return false;
 
-		if(s.length() == 0)
-			return true;
+        if (s.length() == 0)
+            return true;
 
-		Stack<Character> stack = new Stack<>();
+        Stack<Character> stack = new Stack<>();
 
-		for(char c : s.toCharArray()) {
+        for (char c : s.toCharArray()) {
 
-			if( c == '(' || c == '{' || c == '[' ) {
-				stack.push(c);
-			} else if( c == ')' && !stack.isEmpty() && stack.peek() == '(' ) {
-				stack.pop();
-			} else if( c == '}' && !stack.isEmpty() && stack.peek() == '{' ) {
-				stack.pop();
-			} else if( c == ']' && !stack.isEmpty() && stack.peek() == '[' ) {
-				stack.pop();
-			}
-		}
+            if (c == '(' || c == '{' || c == '[') {
+                stack.push(c);
+            } else if (c == ')' && !stack.isEmpty() && stack.peek() == '(') {
+                stack.pop();
+            } else if (c == '}' && !stack.isEmpty() && stack.peek() == '{') {
+                stack.pop();
+            } else if (c == ']' && !stack.isEmpty() && stack.peek() == '[') {
+                stack.pop();
+            }
+        }
 
-		return stack.isEmpty();
-	}
+        return stack.isEmpty();
+    }
 }
