@@ -16,32 +16,32 @@ package com.codecafe.problems.firstduplicate;
  */
 public class FirstDuplicateBestSolution {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		int a1[] = {3, 1, 4, 5, 6, 1, 3, 7};
-		int a2[] = {1, 2, 4, 5, 6, 4, 3, 2};
-		int a3[] = {1, 2, 4, 5, 6, 5, 3, 8};
-		int a4[] = {1, 2, 3, 4, 5, 6, 7, 8};
+        int[] a1 = { 3, 1, 4, 5, 6, 1, 3, 7 };
+        int[] a2 = { 1, 2, 4, 5, 6, 4, 3, 2 };
+        int[] a3 = { 1, 2, 4, 5, 6, 5, 3, 8 };
+        int[] a4 = { 1, 2, 3, 4, 5, 6, 7, 8 };
 
-		System.out.println("First Duplicate in a1 : "+firstDuplicate(a1));
-		System.out.println("First Duplicate in a2 : "+firstDuplicate(a2));
-		System.out.println("First Duplicate in a3 : "+firstDuplicate(a3));
-		System.out.println("First Duplicate in a4 : "+firstDuplicate(a4));
+        System.out.println("First Duplicate in a1 : " + firstDuplicate(a1));
+        System.out.println("First Duplicate in a2 : " + firstDuplicate(a2));
+        System.out.println("First Duplicate in a3 : " + firstDuplicate(a3));
+        System.out.println("First Duplicate in a4 : " + firstDuplicate(a4));
 
-	}
+    }
 
-	private static int firstDuplicate(int[] a) {
+    private static int firstDuplicate(int[] a) {
 
-		for(int i=0; i<a.length; i++) {
+        for (int i = 0; i < a.length; i++) {
 
-			if(a[Math.abs(a[i])-1] < 0)
-				return Math.abs(a[i]);
-			else
-				a[Math.abs(a[i])-1] = -a[Math.abs(a[i])-1];
+            if (a[Math.abs(a[i]) - 1] < 0)
+                return Math.abs(a[i]);
+            else
+                a[Math.abs(a[i]) - 1] = -a[Math.abs(a[i]) - 1];
 
-		}
+        }
 
-		return -1;
-	}
+        return -1;
+    }
 
 }
