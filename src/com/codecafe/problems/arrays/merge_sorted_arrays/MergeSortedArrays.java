@@ -1,4 +1,4 @@
-package com.codecafe.problems.merge_sorted_arrays;
+package com.codecafe.problems.arrays.merge_sorted_arrays;
 
 /*
  * Merge Sorted Arrays
