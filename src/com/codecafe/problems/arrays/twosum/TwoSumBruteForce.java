@@ -23,29 +23,28 @@ package com.codecafe.problems.arrays.twosum;
  */
 public class TwoSumBruteForce {
 
-    public static void main(String[] args) {
-        int[] nums = { 3, 2, 4, 5, 8 };
-        int target = 10;
+  public static void main(String[] args) {
+    int[] nums = {3, 2, 4, 5, 8};
+    int target = 10;
 
-        print(twoSum(nums, target));
-    }
+    print(twoSum(nums, target));
+  }
 
-    public static int[] twoSum(int[] nums, int target) {
-
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j < nums.length; j++) {
-                if (nums[j] == target - nums[i]) {
-                    return new int[] { i, j };
-                }
-            }
+  public static int[] twoSum(int[] nums, int target) {
+    for (int i = 0; i < nums.length; i++) {
+      for (int j = i + 1; j < nums.length; j++) {
+        if (nums[j] == target - nums[i]) {
+          return new int[]{i, j};
         }
-
-        return new int[2];
+      }
     }
 
-    public static void print(int[] a) {
-        for (int num : a)
-            System.out.print(num + " ");
-    }
+    return new int[2];
+  }
+
+  public static void print(int[] a) {
+    for (int num : a)
+      System.out.print(num + " ");
+  }
 
 }

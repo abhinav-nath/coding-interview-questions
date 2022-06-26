@@ -9,45 +9,43 @@ import java.util.Map;
  * Given a string s consisting of small English letters,
  * find and return the first instance of a non-repeating character in it.
  * If there is no such character return '_'.
- * 
+ *
  * Solution's rating -> Better than brute force technique (two for loops)
  * Better solution -> FirstNonRepeatingCharacterUsingArray.java
- * 
+ *
  */
 
 public class FirstNonRepeatingCharacterUsingHashMap {
 
-	public static void main(String[] args) {
+  public static void main(String[] args) {
+    String testString1 = "aaabcccdeeef";
+    String testString2 = "aaabbbcccdddeeefffggghhhiiijjjkkklmlmnon";
+    String testString3 = "aabbccdddefefgghihi";
 
-		String testString1 = "aaabcccdeeef";
-		String testString2 = "aaabbbcccdddeeefffggghhhiiijjjkkklmlmnon";
-		String testString3 = "aabbccdddefefgghihi";
+    System.out.println("First non-repeating char in testString1 : " + firstNonRepeatingCharacter(testString1));
+    System.out.println("First non-repeating char in testString2 : " + firstNonRepeatingCharacter(testString2));
+    System.out.println("First non-repeating char in testString3 : " + firstNonRepeatingCharacter(testString3));
 
-		System.out.println("First non-repeating char in testString1 : "+firstNonRepeatingCharacter(testString1));
-		System.out.println("First non-repeating char in testString2 : "+firstNonRepeatingCharacter(testString2));
-		System.out.println("First non-repeating char in testString3 : "+firstNonRepeatingCharacter(testString3));
+  }
 
-	}
+  private static char firstNonRepeatingCharacter(String s) {
+    Map<Character, Integer> charCounts = new HashMap<>();
 
-	private static char firstNonRepeatingCharacter(String s) {
+    for (int i = 0; i < s.length(); i++) {
+      char c = s.charAt(i);
 
-		Map<Character, Integer> charCounts = new HashMap<>();
+      if (charCounts.containsKey(c))
+        charCounts.put(c, charCounts.get(c) + 1);
+      else
+        charCounts.put(c, 1);
+    }
 
-		for(int i=0; i<s.length(); i++) {
-			char c = s.charAt(i);
+    for (char c : s.toCharArray()) {
+      if (charCounts.get(c) == 1)
+        return c;
+    }
 
-			if(charCounts.containsKey(c))
-				charCounts.put(c, charCounts.get(c) + 1);
-			else
-				charCounts.put(c, 1);
-		}
-
-		for(char c : s.toCharArray()) {
-			if(charCounts.get(c) == 1)
-				return c;
-		}
-
-		return '_';
-	}
+    return '_';
+  }
 
 }

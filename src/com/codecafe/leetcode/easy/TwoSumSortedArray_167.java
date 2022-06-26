@@ -20,43 +20,38 @@ Explanation: The sum of 2 and 7 is 9. Therefore index1 = 1, index2 = 2.
  */
 public class TwoSumSortedArray_167 {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
+    int[] numbers = {2, 3, 4, 5, 6, 7, 11, 30};
+    int target = 10;
 
-        int[] numbers = { 2, 3, 4, 5, 6, 7, 11, 30 };
-        int target = 10;
+    System.out.println("output :");
+    print(twoSumUsingTwoPointers(numbers, target));
+  }
 
-        System.out.println("output :");
-        print(twoSumUsingTwoPointers(numbers, target));
+  // using two pointers -> left and right
+  public static int[] twoSumUsingTwoPointers(int[] numbers, int target) {
+    int left = 0;
+    int right = numbers.length - 1;
 
+    while (numbers[left] <= numbers[right]) {
+      int sum = numbers[left] + numbers[right];
+
+      if (sum > target) {
+        right--;
+      } else if (sum < target) {
+        left++;
+      } else {
+        // sum = target
+        return new int[]{left + 1, right + 1};
+      }
     }
 
-    // using two pointers -> left and right
-    public static int[] twoSumUsingTwoPointers(int[] numbers, int target) {
+    return new int[2];
+  }
 
-        int left = 0;
-        int right = numbers.length - 1;
-
-        while (numbers[left] <= numbers[right]) {
-
-            int sum = numbers[left] + numbers[right];
-
-            if (sum > target) {
-                right--;
-            } else if (sum < target) {
-                left++;
-            } else {
-                // sum = target
-                return new int[] { left + 1, right + 1 };
-            }
-
-        }
-
-        return new int[2];
-    }
-
-    public static void print(int[] a) {
-        for (int num : a)
-            System.out.print(num + " ");
-    }
+  public static void print(int[] a) {
+    for (int num : a)
+      System.out.print(num + " ");
+  }
 
 }

@@ -2,22 +2,18 @@ package com.codecafe.dp.fibonacci;
 
 public class FibonacciRecursion {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
+    int n = 5;
+    System.out.println("\nFib(" + n + ") = " + fib(n));
+  }
 
-        int n = 5;
+  private static int fib(int n) {
+    System.out.printf("fib(%d)%n", n);
 
-        System.out.println("\nFib(" + n + ") = " + fib(n));
-    }
+    if (n <= 1)
+      return n;
 
-    private static int fib(int n) {
-
-        System.out.printf("fib(%d)%n", n);
-
-        if (n <= 1)
-            return n;
-
-        return fib(n - 1) + fib(n - 2);
-
-    }
+    return fib(n - 1) + fib(n - 2);
+  }
 
 }

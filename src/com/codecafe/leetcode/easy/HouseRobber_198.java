@@ -25,53 +25,50 @@ Constraints:
 */
 public class HouseRobber_198 {
 
-    public static void main(String[] args) {
-
+  public static void main(String[] args) {
 //        int[] nums = new int[] { 1, 2, 3, 1 };
 //        int[] nums = new int[] { 2, 7, 9, 3, 1 };
 //        int[] nums = new int[] { 2, 1, 1, 2 };
-        int[] nums = new int[] { 1, 2, 3, 1, 1, 100 };
+    int[] nums = new int[]{1, 2, 3, 1, 1, 100};
 
-        System.out.println("Total amount you can rob = " + rob(nums));
+    System.out.println("Total amount you can rob = " + rob(nums));
+  }
+
+  // this approach does not work for below :
+  // 1, 2, 3, 1, 1, 100
+  // because the result should be 104 but this method will give 103 ( 2 + 1 + 100 )
+  // 104 -> because the robber can also skip houses to obtain higher loot ( 1 + 3 + 100 )
+  private static int notSoGoodRob(int[] nums) {
+    int sumEven = 0, sumOdd = 0;
+
+    for (int i = 0; i < nums.length; i++) {
+      if (i % 2 == 0)
+        sumEven += nums[i];
+      else
+        sumOdd += nums[i];
     }
 
-    // this approach does not work for below :
-    // 1, 2, 3, 1, 1, 100
-    // because the result should be 104 but this method will give 103 ( 2 + 1 + 100 )
-    // 104 -> because the robber can also skip houses to obtain higher loot ( 1 + 3 + 100 )
-    private static int notSoGoodRob(int[] nums) {
+    if (sumEven > sumOdd)
+      return sumEven;
+    else
+      return sumOdd;
+  }
 
-        int sumEven = 0, sumOdd = 0;
+  // uses dynamic programming and memoization
+  private static int rob(int[] nums) {
+    if (nums.length == 0)
+      return 0;
 
-        for (int i = 0; i < nums.length; i++) {
-            if (i % 2 == 0)
-                sumEven += nums[i];
-            else
-                sumOdd += nums[i];
-        }
+    int[] dp = new int[nums.length + 1];
 
-        if (sumEven > sumOdd)
-            return sumEven;
-        else
-            return sumOdd;
+    dp[0] = 0;
+    dp[1] = nums[0];
+
+    for (int i = 1; i < nums.length; i++) {
+      dp[i + 1] = Math.max(dp[i], dp[i - 1] + nums[i]);
     }
 
-    // uses dynamic programming and memoization
-    private static int rob(int[] nums) {
-
-        if (nums.length == 0)
-            return 0;
-
-        int[] dp = new int[nums.length + 1];
-
-        dp[0] = 0;
-        dp[1] = nums[0];
-
-        for (int i = 1; i < nums.length; i++) {
-            dp[i + 1] = Math.max(dp[i], dp[i - 1] + nums[i]);
-        }
-
-        return dp[nums.length];
-    }
+    return dp[nums.length];
+  }
 
 }

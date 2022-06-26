@@ -18,47 +18,44 @@ Output: 5
  */
 public class LengthOfLastWord_58 {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
+    List<String> testStrings = new ArrayList<>();
 
-        List<String> testStrings = new ArrayList<>();
+    testStrings.add("Hello World");
+    testStrings.add("Hello World ");
+    testStrings.add(" ");
+    testStrings.add("");
+    testStrings.add(" test string");
+    testStrings.add("hello");
+    testStrings.add("a");
+    testStrings.add("a ");
 
-        testStrings.add("Hello World");
-        testStrings.add("Hello World ");
-        testStrings.add(" ");
-        testStrings.add("");
-        testStrings.add(" test string");
-        testStrings.add("hello");
-        testStrings.add("a");
-        testStrings.add("a ");
+    for (String s : testStrings)
+      System.out.println("length of last word in string <" + s + "> = " + lengthOfLastWordCustom(s));
+  }
 
-        for (String s : testStrings)
-            System.out.println("length of last word in string <" + s + "> = " + lengthOfLastWordCustom(s));
+  public static int lengthOfLastWord(String s) {
+    String[] str = s.split(" ");
 
+    if (str.length == 0)
+      return 0;
+
+    return str[str.length - 1].length();
+  }
+
+  public static int lengthOfLastWordCustom(String s) {
+    int count = 0;
+
+    s = s.trim();
+
+    for (int i = s.length() - 1; i >= 0; i--) {
+      if (s.charAt(i) != ' ')
+        count++;
+      else
+        break;
     }
 
-    public static int lengthOfLastWord(String s) {
-        String str[] = s.split(" ");
-
-        if (str.length == 0)
-            return 0;
-
-        return str[str.length - 1].length();
-    }
-
-    public static int lengthOfLastWordCustom(String s) {
-
-        int count = 0;
-
-        s = s.trim();
-
-        for (int i = s.length() - 1; i >= 0; i--) {
-            if (s.charAt(i) != ' ')
-                count++;
-            else
-                break;
-        }
-
-        return count;
-    }
+    return count;
+  }
 
 }

@@ -13,12 +13,12 @@ Those numbers for which this process ends in 1 are happy numbers.
 
 Return True if n is a happy number, and False if not.
 
-Example: 
+Example:
 
 Input: 19
 Output: true
 
-Explanation: 
+Explanation:
 1^2 + 9^2 = 82
 8^2 + 2^2 = 68
 6^2 + 8^2 = 100
@@ -28,47 +28,45 @@ Explanation:
 
 public class HappyNumber_202 {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
 
-        Scanner sc = new Scanner(System.in);
+    while (true) {
+      int num = sc.nextInt();
 
-        while (true) {
-            int num = sc.nextInt();
-
-            if (num == 999) {
-                System.out.println("Invalid input");
-                break;
-            } else {
-                boolean isHappy = isHappy(num);
-                System.out.println("isHappy(" + num + ") = " + isHappy);
-            }
-        }
-
-        sc.close();
+      if (num == 999) {
+        System.out.println("Invalid input");
+        break;
+      } else {
+        boolean isHappy = isHappy(num);
+        System.out.println("isHappy(" + num + ") = " + isHappy);
+      }
     }
 
-    private static boolean isHappy(int n) {
+    sc.close();
+  }
 
-        HashSet<Integer> seen = new HashSet<>();
+  private static boolean isHappy(int n) {
+    HashSet<Integer> seen = new HashSet<>();
 
-        while (n != 1) {
-            int current = n;
-            int sum = 0;
+    while (n != 1) {
+      int current = n;
+      int sum = 0;
 
-            while (current != 0) {
-                sum += (current % 10) * (current % 10);
-                current /= 10;
-            }
+      while (current != 0) {
+        sum += (current % 10) * (current % 10);
+        current /= 10;
+      }
 
-            if (seen.contains(sum)) {
-                return false;
-            }
+      if (seen.contains(sum)) {
+        return false;
+      }
 
-            seen.add(sum);
-            n = sum;
-        }
-
-        return true;
+      seen.add(sum);
+      n = sum;
     }
+
+    return true;
+  }
 
 }

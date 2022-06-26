@@ -22,27 +22,25 @@ import java.util.Map;
  */
 public class GoodSolution {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
+    char[] array1 = {'a', 'b', 'c', 'x'};
+    char[] array2 = {'z', 'x', 'w'};
 
-        char[] array1 = { 'a', 'b', 'c', 'x' };
-        char[] array2 = { 'z', 'x', 'w' };
+    System.out.println(containsCommonItems(array1, array2));
+  }
 
-        System.out.println(containsCommonItems(array1, array2));
-    }
+  private static boolean containsCommonItems(char[] array1, char[] array2) {
+    Map<Character, Boolean> charMap = new HashMap<>();
 
-    private static boolean containsCommonItems(char[] array1, char[] array2) {
+    for (char e : array1)
+      if (charMap.get(e) == null)
+        charMap.put(e, true);
 
-        Map<Character, Boolean> charMap = new HashMap<>();
+    for (char e : array2)
+      if (charMap.get(e) != null)
+        return true;
 
-        for (char e : array1)
-            if (charMap.get(e) == null)
-                charMap.put(e, true);
-
-        for (char e : array2)
-            if (charMap.get(e) != null)
-                return true;
-
-        return false;
-    }
+    return false;
+  }
 
 }

@@ -28,49 +28,47 @@ import java.util.List;
  */
 public class RemoveDuplicatesFromSortedArray_26 {
 
-    public static void main(String[] args) {
-        List<int[]> testArrays = new ArrayList<>();
+  public static void main(String[] args) {
+    List<int[]> testArrays = new ArrayList<>();
 
-        testArrays.add(new int[] { 1, 1, 2 });
-        testArrays.add(new int[] { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 });
-        testArrays.add(new int[] { 1, 2, 3, 4, 5, 5, 6, 7, 7, 8, 9, 9, 10, 10, 10 });
+    testArrays.add(new int[]{1, 1, 2});
+    testArrays.add(new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4});
+    testArrays.add(new int[]{1, 2, 3, 4, 5, 5, 6, 7, 7, 8, 9, 9, 10, 10, 10});
 
-        printResult(testArrays);
+    printResult(testArrays);
+  }
+
+  private static void printResult(List<int[]> testArrays) {
+    for (int[] a : testArrays) {
+
+      System.out.println("\ninput array, length = " + a.length);
+      for (int element : a)
+        System.out.print(element + " ");
+
+      System.out.println();
+
+      int len = removeDuplicates(a);
+
+      System.out.println("\nafter removing duplicates, length = " + len);
+      for (int i = 0; i < len; i++)
+        System.out.print(a[i] + " ");
+
+      System.out.println();
+    }
+  }
+
+  private static int removeDuplicates(int[] nums) {
+    // index to place the number which is unique
+    // first number in the array is always going to be unique
+    int index = 1;
+
+    for (int i = 0; i < nums.length - 1; i++) {
+      if (nums[i] != nums[i + 1]) {
+        nums[index++] = nums[i + 1];
+      }
     }
 
-    private static void printResult(List<int[]> testArrays) {
-
-        for (int[] a : testArrays) {
-
-            System.out.println("\ninput array, length = " + a.length);
-            for (int element : a)
-                System.out.print(element + " ");
-
-            System.out.println();
-            
-            int len = removeDuplicates(a);
-
-            System.out.println("\nafter removing duplicates, length = " + len);
-            for (int i = 0; i < len; i++)
-                System.out.print(a[i] + " ");
-
-            System.out.println();
-        }
-    }
-
-    private static int removeDuplicates(int[] nums) {
-
-        // index to place the number which is unique
-        // first number in the array is always going to be unique
-        int index = 1;
-
-        for (int i = 0; i < nums.length - 1; i++) {
-            if (nums[i] != nums[i + 1]) {
-                nums[index++] = nums[i + 1];
-            }
-        }
-
-        return index;
-    }
+    return index;
+  }
 
 }

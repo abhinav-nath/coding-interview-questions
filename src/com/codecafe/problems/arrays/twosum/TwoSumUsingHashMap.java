@@ -26,33 +26,31 @@ import java.util.Map;
  */
 public class TwoSumUsingHashMap {
 
-    public static void main(String[] args) {
-        int[] nums = { 3, 2, 4, 5, 8 };
-        int target = 10;
+  public static void main(String[] args) {
+    int[] nums = {3, 2, 4, 5, 8};
+    int target = 10;
 
-        print(twoSum(nums, target));
+    print(twoSum(nums, target));
+  }
+
+  public static int[] twoSum(int[] nums, int target) {
+    Map<Integer, Integer> numIndexMap = new HashMap<>();
+
+    for (int i = 0; i < nums.length; i++) {
+      int numToFind = target - nums[i];
+
+      if (numIndexMap.containsKey(numToFind) && numIndexMap.get(numToFind) != i)
+        return new int[]{numIndexMap.get(numToFind), i};
+
+      numIndexMap.put(nums[i], i);
     }
 
-    public static int[] twoSum(int[] nums, int target) {
+    return new int[2];
+  }
 
-        Map<Integer, Integer> numIndexMap = new HashMap<>();
-
-        for (int i = 0; i < nums.length; i++) {
-
-            int numToFind = target - nums[i];
-
-            if (numIndexMap.containsKey(numToFind) && numIndexMap.get(numToFind) != i)
-                return new int[] { numIndexMap.get(numToFind), i };
-
-            numIndexMap.put(nums[i], i);
-        }
-
-        return new int[2];
-    }
-
-    public static void print(int[] a) {
-        for (int num : a)
-            System.out.print(num + " ");
-    }
+  public static void print(int[] a) {
+    for (int num : a)
+      System.out.print(num + " ");
+  }
 
 }

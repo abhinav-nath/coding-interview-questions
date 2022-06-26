@@ -18,37 +18,36 @@ If you have figured out the O(n) solution, try coding another solution using the
 
 public class MaximumSubArray {
 
-    public static void main(String[] args) {
-        List<int[]> testArrays = new ArrayList<>();
+  public static void main(String[] args) {
+    List<int[]> testArrays = new ArrayList<>();
 
-        testArrays.add(new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 });
-        testArrays.add(new int[] { 4, 3, 0, -2, 3, -2, -5, 6 });
-        testArrays.add(new int[] { 10, -6, 1, -1, -5, 2, -1, 3, 0, 3, -1, 9, -5 });
+    testArrays.add(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4});
+    testArrays.add(new int[]{4, 3, 0, -2, 3, -2, -5, 6});
+    testArrays.add(new int[]{10, -6, 1, -1, -5, 2, -1, 3, 0, 3, -1, 9, -5});
 
-        printResult(testArrays);
+    printResult(testArrays);
+  }
+
+  public static int maxSubArray(int[] nums) {
+    int max = nums[0];
+    int currentMax = nums[0];
+
+    for (int i = 1; i < nums.length; i++) {
+      currentMax = Math.max(nums[i], currentMax + nums[i]);
+      max = Math.max(max, currentMax);
     }
 
-    public static int maxSubArray(int[] nums) {
+    return max;
+  }
 
-        int max = nums[0];
-        int currentMax = nums[0];
+  private static void printResult(List<int[]> testArrays) {
+    for (int[] a : testArrays) {
 
-        for (int i = 1; i < nums.length; i++) {
-            currentMax = Math.max(nums[i], currentMax + nums[i]);
-            max = Math.max(max, currentMax);
-        }
+      for (int element : a)
+        System.out.print(element + " ");
 
-        return max;
+      System.out.print(" max sub array = " + maxSubArray(a) + "\n");
     }
+  }
 
-    private static void printResult(List<int[]> testArrays) {
-
-        for (int[] a : testArrays) {
-
-            for (int element : a)
-                System.out.print(element + " ");
-
-            System.out.print(" max sub array = " + maxSubArray(a) + "\n");
-        }
-    }
 }

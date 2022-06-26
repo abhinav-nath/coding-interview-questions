@@ -22,54 +22,51 @@ Explanation: The array represents the integer 4321.
  */
 public class PlusOne_66 {
 
-    public static void main(String[] args) {
-        List<int[]> testArrays = new ArrayList<>();
+  public static void main(String[] args) {
+    List<int[]> testArrays = new ArrayList<>();
 
-        testArrays.add(new int[] { 1, 2, 3 });
-        testArrays.add(new int[] { 4, 3, 2, 1 });
-        testArrays.add(new int[] { 1, 3, 9 });
-        testArrays.add(new int[] { 1, 9, 9, 9 });
-        testArrays.add(new int[] { 9, 9, 9 });
-        testArrays.add(new int[] { 9, 9, 9, 9 });
-        testArrays.add(new int[] { 1, 0, 9, 0 });
+    testArrays.add(new int[]{1, 2, 3});
+    testArrays.add(new int[]{4, 3, 2, 1});
+    testArrays.add(new int[]{1, 3, 9});
+    testArrays.add(new int[]{1, 9, 9, 9});
+    testArrays.add(new int[]{9, 9, 9});
+    testArrays.add(new int[]{9, 9, 9, 9});
+    testArrays.add(new int[]{1, 0, 9, 0});
 
-        printResult(testArrays);
+    printResult(testArrays);
+  }
 
+  public static int[] plusOne(int[] digits) {
+    int l = digits.length;
+
+    for (int i = l - 1; i >= 0; i--) {
+
+      if (digits[i] < 9) {
+        digits[i]++;
+        return digits;
+      }
+      digits[i] = 0;
     }
 
-    public static int[] plusOne(int[] digits) {
+    // case of 999 where we have to expand the array size for 1000 (999+1)
+    int[] newNumber = new int[l + 1];
+    newNumber[0] = 1;
+    return newNumber;
+  }
 
-        int l = digits.length;
+  private static void printResult(List<int[]> testArrays) {
+    for (int[] a : testArrays) {
 
-        for (int i = l - 1; i >= 0; i--) {
+      for (int element : a)
+        System.out.print(element + " ");
 
-            if (digits[i] < 9) {
-                digits[i]++;
-                return digits;
-            }
-            digits[i] = 0;
-        }
+      System.out.print(" plus one = ");
 
-        // case of 999 where we have to expand the array size for 1000 (999+1)
-        int[] newNumber = new int[l + 1];
-        newNumber[0] = 1;
-        return newNumber;
+      for (int element : plusOne(a))
+        System.out.print(element + " ");
 
+      System.out.println();
     }
+  }
 
-    private static void printResult(List<int[]> testArrays) {
-
-        for (int[] a : testArrays) {
-
-            for (int element : a)
-                System.out.print(element + " ");
-
-            System.out.print(" plus one = ");
-
-            for (int element : plusOne(a))
-                System.out.print(element + " ");
-
-            System.out.println();
-        }
-    }
 }
