@@ -35,10 +35,8 @@ public class TwoSum_1 {
   public static int[] twoSumBruteForce(int[] nums, int target) {
     for (int i = 0; i < nums.length; i++) {
       for (int j = i + 1; j < nums.length; j++) {
-
-        if (nums[j] == (target - nums[i])) {
+        if (nums[j] == (target - nums[i]))
           return new int[]{i, j};
-        }
       }
     }
     return new int[2];
@@ -49,7 +47,6 @@ public class TwoSum_1 {
     Map<Integer, Integer> numIndexMap = new HashMap<>();
 
     for (int i = 0; i < nums.length; i++) {
-
       int numToFind = target - nums[i];
 
       if (numIndexMap.containsKey(numToFind) && numIndexMap.get(numToFind) != i)

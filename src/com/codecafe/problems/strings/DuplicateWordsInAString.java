@@ -15,8 +15,8 @@ public class DuplicateWordsInAString {
 
     Map<String, Integer> wordCountMap = new LinkedHashMap<>();
 
-    for (int i = 0; i < words.length; i++)
-      wordCountMap.merge(words[i], 1, Integer::sum); // Java 8 way!
+    for (String word : words)
+      wordCountMap.merge(word, 1, Integer::sum); // Java 8 way!
 
     for (Map.Entry<String, Integer> entry : wordCountMap.entrySet()) {
       if (entry.getValue() > 1)

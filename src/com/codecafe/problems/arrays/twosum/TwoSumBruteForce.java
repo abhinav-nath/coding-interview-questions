@@ -38,7 +38,6 @@ public class TwoSumBruteForce {
         }
       }
     }
-
     return new int[2];
   }
 
